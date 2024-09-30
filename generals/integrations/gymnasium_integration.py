@@ -76,7 +76,7 @@ class Gym_Generals(gymnasium.Env):
 
     def step(self, action):
         # get action of NPC
-        npc_action = self.npc.play(self.game._agent_observation(self.npc.name))
+        npc_action = self.npc.play(self.game._agent_observation(self.npc.name).as_dict())
         actions = {self.agent_name: action, self.npc.name: npc_action}
 
         if hasattr(self, "replay"):
